@@ -20,5 +20,4 @@ Artisan::command('inspire', function () {
     $ret = '';
 
     dd((int)$ret);
-
 })->purpose('Display an inspiring quote');

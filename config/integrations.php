@@ -2,6 +2,6 @@
 
 return [
     'ibge' => [
-        'api' => env('IBGE_API', '')
-    ]
+        'api' => env('IBGE_API', ''),
+    ],
 ];

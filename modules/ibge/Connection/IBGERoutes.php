@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace IBGE\Connection;
 
 use IBGE\Enumerations\IBGEEnum;
@@ -19,12 +21,12 @@ final class IBGERoutes
 
     public static function getLocalitiesByUf(string $fu): string
     {
-        return self::getUri() .  self::LOCALITIES . self::STATES . "/{$fu}";
+        return self::getUri() . self::LOCALITIES . self::STATES . "/{$fu}";
     }
 
     /** @return Repository|Application|mixed */
     private static function getUri()
     {
-        return config('integrations.' . IBGEEnum::IBGE .  '.api', '' );
+        return config('integrations.' . IBGEEnum::IBGE . '.api', '');
     }
 }

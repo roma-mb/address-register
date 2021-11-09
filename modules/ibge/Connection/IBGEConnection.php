@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace IBGE\Connection;
 
 use Illuminate\Http\Client\Response;
@@ -9,6 +11,7 @@ class IBGEConnection
 {
     /**
      * @param string $fu
+     *
      * @return Response
      */
     public function getCountyByFU(string $fu): Response
@@ -18,6 +21,7 @@ class IBGEConnection
 
     /**
      * @param string $fu
+     *
      * @return Response
      */
     public function getLocalityByUf(string $fu): Response

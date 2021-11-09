@@ -25,13 +25,17 @@ class Address extends Model
         return $this->belongsTo(City::class);
     }
 
-    public static function adapter($array): array
+    /**
+     * @param Mixed[] $attributes
+     * @return Mixed[]
+     */
+    public static function adapter(array $attributes): array
     {
         return [
-            'local' => Arr::get($array, 'microrregiao.nome', ''),
-            'number' => (int) Arr::get($array, 'microrregiao.numero', ''),
-            'neighborhood' => Arr::get($array, 'nome', ''),
-            'city_id' => (int) Arr::get($array, 'microrregiao.mesorregiao.id', '')
+            'local' => Arr::get($attributes, 'microrregiao.nome', ''),
+            'number' => (int) Arr::get($attributes, 'microrregiao.numero', ''),
+            'neighborhood' => Arr::get($attributes, 'nome', ''),
+            'city_id' => (int) Arr::get($attributes, 'microrregiao.mesorregiao.id', ''),
         ];
     }
 }

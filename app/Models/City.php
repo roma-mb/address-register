@@ -15,7 +15,7 @@ class City extends Model
 
     protected $fillable = [
         'name',
-        'reference'
+        'reference',
     ];
 
     public function address(): HasMany
@@ -23,11 +23,15 @@ class City extends Model
         return $this->hasMany(Address::class);
     }
 
-    public static function adapter($array)
+    /**
+     * @param Mixed[] $attributes
+     * @return Mixed[]
+     */
+    public static function adapter(array $attributes): array
     {
         return [
-            'name' => Arr::get($array, 'microrregiao.mesorregiao.nome', ''),
-            'reference' => Arr::get($array, 'microrregiao.mesorregiao.id', ''),
+            'name' => Arr::get($attributes, 'microrregiao.mesorregiao.nome', ''),
+            'reference' => Arr::get($attributes, 'microrregiao.mesorregiao.id', ''),
         ];
     }
 }

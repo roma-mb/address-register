@@ -31,13 +31,13 @@ class CityImportCmd extends Command
         try {
             $state    = $this->argument('state');
             $locality = $this->IBGEConnection->getLocalityByUf($state)->throw();
+
             $fuId     = (int) data_get($locality->json(), 'id', '');
             $counties = $this->IBGEConnection->getCountyByFU($fuId)->throw();
 
-            $counties->collect()->each(static function($values) {
+            $counties->collect()->each(static function ($values) {
                 City::updateOrCreate(City::adapter($values));
             });
-
         } catch (\Exception $exception) {
             Log::alert($exception->getMessage());
         }

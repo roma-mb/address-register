@@ -14,6 +14,7 @@ class AddressService
 
     /**
      * @param Mixed[] $attributes
+     *
      * @return Address
      */
     public function create(array $attributes): Address
@@ -24,6 +25,7 @@ class AddressService
     /**
      * @param Mixed[] $attributes
      * @param Address $address
+     *
      * @return bool
      */
     public function update(array $attributes, Address $address): bool
