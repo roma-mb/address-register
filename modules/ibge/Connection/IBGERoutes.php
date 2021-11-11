@@ -11,7 +11,9 @@ use Illuminate\Contracts\Foundation\Application;
 final class IBGERoutes
 {
     private const COUNTY     = '/municipios';
+
     private const LOCALITIES = '/v1/localidades';
+
     private const STATES     = '/estados';
 
     public static function getCounty(int $fuId): string

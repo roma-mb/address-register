@@ -15,6 +15,7 @@ class City extends Model
 
     protected $fillable = [
         'name',
+        'state',
         'reference',
     ];
 
@@ -25,12 +26,14 @@ class City extends Model
 
     /**
      * @param Mixed[] $attributes
+     *
      * @return Mixed[]
      */
     public static function adapter(array $attributes): array
     {
         return [
             'name' => Arr::get($attributes, 'microrregiao.mesorregiao.nome', ''),
+            'state' => Arr::get($attributes, 'microrregiao.mesorregiao.UF.sigla', ''),
             'reference' => Arr::get($attributes, 'microrregiao.mesorregiao.id', ''),
         ];
     }

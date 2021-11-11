@@ -44,7 +44,7 @@ class CityImportCmdTest extends TestCase
 
     private static function countyResponse()
     {
-        return [
+        return [[
             'id' => 3500105,
             'nome' => 'Adamantina',
             'microrregiao' => [
@@ -83,6 +83,6 @@ class CityImportCmdTest extends TestCase
                     ],
                 ],
             ],
-        ];
+        ]];
     }
 }

@@ -15,7 +15,8 @@ class CityFactory extends Factory
     {
         return [
             'name' => $this->faker->city,
-            'reference' => $this->faker->randomNumber(4),
+            'state' => $this->faker->stateAbbr,
+            'reference' => (string) $this->faker->randomNumber(4),
         ];
     }
 }

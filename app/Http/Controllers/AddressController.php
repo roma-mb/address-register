@@ -34,13 +34,19 @@ class AddressController extends Controller
         return $address;
     }
 
-    public function update(AddressFormRequest $request, Address $address): bool
+    public function update(AddressFormRequest $request, Address $address): JsonResponse
     {
-        return $this->addressService->update($request->validated(), $address);
+        return response()
+            ->json([
+                'status' => $this->addressService->update($request->validated(), $address),
+            ],Response::HTTP_OK);
     }
 
-    public function destroy(Address $address): ?bool
+    public function destroy(Address $address): JsonResponse
     {
-        return $this->addressService->delete($address);
+        return response()
+            ->json([
+                'status' => (bool) $this->addressService->delete($address)
+            ],Response::HTTP_OK);
     }
 }

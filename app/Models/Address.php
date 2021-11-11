@@ -27,6 +27,7 @@ class Address extends Model
 
     /**
      * @param Mixed[] $attributes
+     *
      * @return Mixed[]
      */
     public static function adapter(array $attributes): array

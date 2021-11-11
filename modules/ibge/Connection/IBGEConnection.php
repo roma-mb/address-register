@@ -14,7 +14,7 @@ class IBGEConnection
      *
      * @return Response
      */
-    public function getCountyByFU(string $fu): Response
+    public function getCountyByFU(int $fu): Response
     {
         return Http::get(IBGERoutes::getCounty($fu));
     }
